@@ -1,12 +1,13 @@
 {
-  "name": "brix-builds",
+  "name": "calendar-app",
   "version": "1.0.0",
   "description": "Brix Builds - Real Estate Development",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest",
     "eject": "react-scripts eject"
   },
   "dependencies": {
