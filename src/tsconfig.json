@@ -4,12 +4,12 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "moduleResolution": "Node",
+    "target": "ES6",  
     "baseUrl": "./",
     "resolveJsonModule": true,
-    "target": "ES6",
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals"],
     "paths": {
       "~images": [
         "src/images"

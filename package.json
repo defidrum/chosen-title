@@ -1,5 +1,53 @@
 {
+  "name": "calendar-app",
+  "version": "1.0.0",
+  "description": "Brix Builds - Real Estate Development",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "react-router-dom": "^7.1.5"
+    "@reduxjs/toolkit": "^2.5.1",
+    "@testing-library/react": "^16.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "msw": "^2.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.1.5",
+    "vite": "^6.1.0",
+    "vite-plugin-ejs": "^1.7.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "real-estate"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

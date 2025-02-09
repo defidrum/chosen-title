@@ -4,13 +4,11 @@ export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'v1' }),
   endpoints: (builder) => ({
-    getDataFromEndpoint: builder.query({
-      query: () => 'urlWithData',
+    getDataFromEndpoint1: builder.query({
+      query: () => '/url-endpoint1',
     }),
   })
 });
 
-// When you need to call your data from your api endpoint you will use a hook to do so.
-// For example look at the below query
-// export const { useLazyGetSomeDataFromEndpointQuery } = apiSlice;
-// export const { useGetSomeDataFromEndPointQuery } = apiSlice;
+
+export const {useGetDataFromEndpoint1Query} = apiSlice
