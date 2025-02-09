@@ -1,7 +1,6 @@
 import { defineConfig, mergeConfig } from 'vite'
 import { ViteEjsPlugin } from 'vite-plugin-ejs'
 import tsconfigpaths from 'vite-tsconfig-paths'
-import react from '@vitejs/plugin-react'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 
@@ -13,7 +12,6 @@ export default mergeConfig(
   viteBaseConfig,
   defineConfig({
     plugins: [
-      react(),
       tsconfigpaths(),
       ViteEjsPlugin({
         VERSION: JSON.stringify(process.env.npm_package_version),
