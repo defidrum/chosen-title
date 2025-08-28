@@ -4,6 +4,7 @@ import tsconfigpaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,6 +19,7 @@ const vitestConfig = {
 const mainConfig: UserConfig = {
   plugins: [
     react(),
+    tailwindcss(),
     tsconfigpaths(),
     ViteEjsPlugin({
       VERSION: JSON.stringify(process.env.npm_package_version),
