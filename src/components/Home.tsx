@@ -54,7 +54,7 @@ const Home = () => {
             <a href="#about" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors">About</a>
             <button 
               onClick={() => openContactForm('consultation')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+              className="bg-blue-500 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
             >
               Book Free Call
             </button>
@@ -108,30 +108,30 @@ const Home = () => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}></div>
-      <div className="absolute inset-0 bg-black opacity-40"></div>
+     <div className="absolute inset-0 bg-black/55"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Master Real Estate
+            Become a Real Estate
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">
-              Development
+              Developer
             </span>
           </h1>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white drop-shadow-lg mb-8 max-w-3xl mx-auto leading-relaxed">
             Transform your career with our comprehensive real estate development and general contracting programs. 
             Get licensed to build in 17 states and gain hands-on experience at live construction sites.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => openContactForm('development')}
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-white hover:bg-gray-100 text-blue-500 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Start Your Journey Today
             </button>
             <button 
               onClick={() => openContactForm('consultation')}
-              className="border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              className="border-2 border-white hover:bg-white hover:text-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
               Book Free Consultation
             </button>
@@ -180,7 +180,7 @@ const Home = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           <CourseCard
-            title="Real Estate Development Mastery"
+            title="Real Estate Developer Course"
             description="Step-by-step system to become a successful developer"
             features={[
               "Complete development process from A-Z",
@@ -195,7 +195,7 @@ const Home = () => {
           />
           
           <CourseCard
-            title="NASCLA Licensing Course"
+            title="General Contractor Licensing Course"
             description="Get licensed to build in 17 states"
             features={[
               "Complete NASCLA exam preparation",
@@ -249,7 +249,7 @@ const Home = () => {
               </button>
             </div>
             <div className="text-center">
-              <div className="bg-white bg-opacity-10 rounded-xl p-6 backdrop-blur-sm">
+            <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
                 <h4 className="text-2xl font-bold mb-4">Limited Spots Available</h4>
                 <p className="text-blue-100 mb-4">
                   We maintain small group sizes to ensure personalized attention and maximum learning
@@ -361,7 +361,7 @@ const Home = () => {
             onClick={() => openContactForm('consultation')}
             className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            Book Your Free Strategy Call
+            Book Your Free Call
           </button>
           <button 
             onClick={() => openContactForm('all')}
@@ -377,7 +377,14 @@ const Home = () => {
   // Contact Form Modal
   const ContactForm = () => (
     showContactForm && (
-      <div className="fixed inset-0 bg-black/20 z-50 flex items-center justify-center p-4">
+      <div
+        className="fixed inset-0 bg-black/20 z-50 flex items-center justify-center p-4"
+        onClick={() => setShowContactForm(false)} // close on backdrop click
+            >
+        <div
+          className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-screen overflow-y-auto"
+          onClick={(e) => e.stopPropagation()} // prevent close when clicking inside
+        >
         <div className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-screen overflow-y-auto">
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">
@@ -456,6 +463,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     )
   );
