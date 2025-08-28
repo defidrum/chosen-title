@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "strict": true,
     "target": "ESNext",
     "module": "ESNext",
-    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "noEmit": true,
     "skipLibCheck": true,
-    "strict": true,
+    "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", "vitest.config.ts"]
+  "include": ["src", "vitest.config.ts", "types/**/*.d.ts", "src/index.tsx"]
 }

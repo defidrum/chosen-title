@@ -1,12 +1,13 @@
-import { defineConfig, mergeConfig } from 'vite'
-import { ViteEjsPlugin } from 'vite-plugin-ejs'
-import tsconfigpaths from 'vite-tsconfig-paths'
-import { fileURLToPath } from 'url'
-import { dirname, resolve } from 'path'
+import { defineConfig, mergeConfig } from 'vite';
+import { ViteEjsPlugin } from 'vite-plugin-ejs';
+import tsconfigpaths from 'vite-tsconfig-paths';
+import react from '@vitejs/plugin-react';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-import viteBaseConfig from './vitest.config'
+import viteBaseConfig from './vitest.config';
 
 export default mergeConfig(
   viteBaseConfig,
@@ -16,6 +17,7 @@ export default mergeConfig(
       ViteEjsPlugin({
         VERSION: JSON.stringify(process.env.npm_package_version),
       }),
+      react(), // Ensure React plugin is included
     ],
     build: {
       sourcemap: true,
@@ -30,4 +32,4 @@ export default mergeConfig(
       strictPort: true,
     },
   })
-)
+);

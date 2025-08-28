@@ -6,7 +6,7 @@ import store from './store'
 
 const root = createRoot(document.getElementById('app')!);
 
-import "./index.css"
+import "../src/tailwind.css"
 
 root.render(
   <Provider store={store}>
