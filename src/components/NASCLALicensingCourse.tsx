@@ -23,7 +23,7 @@ const NASCLALicensingCourse = () => {
     students: 892,
     rating: 4.9,
     instructor: "Jordan Drummond",
-    description: "Get licensed to work as a general contractor in 17 states. Comprehensive NASCLA exam preparation with guaranteed pass rate and ongoing support.",
+    description: "Get licensed to work as a general contractor in 17 states. Comprehensive NASCLA exam preparation with a 97% pass rate and ongoing support.",
     passRate: 97,
     modules: [
       {
@@ -195,8 +195,9 @@ const NASCLALicensingCourse = () => {
             <div className="flex items-center mb-6">
               <span className="text-3xl font-bold">${courseData.price}</span>
               <span className="text-xl text-green-300 line-through ml-3">${courseData.originalPrice}</span>
-              <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm ml-3">40% OFF</span>
+              <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm ml-3">33% OFF</span>
             </div>
+
             
             {!isPurchased && (
               <button
@@ -239,6 +240,23 @@ const NASCLALicensingCourse = () => {
                 Get licensed in: Florida, North Carolina, Georgia, Arizona + 13 more states
               </div>
             </div>
+
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md mb-6">
+              <p className="text-sm">
+                <strong>Important:</strong> This course does <u>not</u> include the required 
+                NASCLA exam reference books. You can purchase them separately by reviewing the 
+                official{" "}
+                <a
+                  href="https://cdn.ymaws.com/www.nascla.org/resource/resmgr/accredited_examinations/candidate_information_bulletins/nascla_commercial_candidate_.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-700 hover:text-blue-900"
+                >
+                  NASCLA Reference List
+                </a>.
+              </p>
+            </div>
+
           </div>
         </div>
       </div>

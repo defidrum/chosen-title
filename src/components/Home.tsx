@@ -63,7 +63,7 @@ const Home = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#home" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors">Home</a>
             <a href="#courses" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors">Courses</a>
-            <a href="#mentorship" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors">Mentorship</a>
+            {/* <a href="#mentorship" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors">Mentorship</a> */}
             <a href="#about" className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors">About</a>
             <button 
               onClick={() => openContactForm('consultation')}
@@ -213,8 +213,8 @@ const CoursesSection = () => (
           features={[
             "Complete NASCLA exam preparation",
             "Multi-state contracting opportunities",
-            "Business law and safety regulations",
-            "High pass rate guarantee"
+            "Practice quizzes and mock exams",
+            "Test-taking strategy"
           ]}
           gradient="from-green-500 to-blue-600"
           buttonText="Get Licensed"
@@ -228,7 +228,7 @@ const CoursesSection = () => (
           description="Learn directly from active developers on real projects"
           features={[
             "Visit active construction sites",
-            "Meet contractors, architects, and investors",
+            "Meet contractors and architects",
             "Learn project management in real-time",
             "Build your professional network"
           ]}
