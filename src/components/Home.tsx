@@ -180,102 +180,68 @@ const Home = () => {
     </div>
   );
 
-  // Courses Section
-  const CoursesSection = () => (
-    <section id="courses" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Transform Your Future</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose from our comprehensive programs designed to take you from beginner to industry professional
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <CourseCard
-            title="Real Estate Developer Course"
-            description="Step-by-step system to become a successful developer"
-            features={[
-              "Complete development process from A-Z",
-              "Land acquisition and feasibility analysis",
-              "Project financing and investor relations",
-              "Construction management and oversight"
-            ]}
-            gradient="from-blue-500 to-purple-600"
-            buttonText="Become a Developer"
-            buttonColor="bg-blue-600 hover:bg-blue-700"
-            courseType="development"
-          />
-          
-          <CourseCard
-            title="General Contractor Licensing Course"
-            description="Get licensed to build in 17 states"
-            features={[
-              "Complete NASCLA exam preparation",
-              "Multi-state contracting opportunities",
-              "Business law and safety regulations",
-              "High pass rate guarantee"
-            ]}
-            gradient="from-green-500 to-blue-600"
-            buttonText="Get Licensed"
-            buttonColor="bg-green-600 hover:bg-green-700"
-            courseType="nascla"
-          />
-        </div>
+// Courses Section
+const CoursesSection = () => (
+  <section id="courses" className="py-20 bg-gray-50">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">Transform Your Future</h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Choose from our comprehensive programs designed to take you from beginner to industry professional
+        </p>
       </div>
-    </section>
-  );
 
-  // Mentorship Section
-  const MentorshipSection = () => (
-    <section id="mentorship" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Hands-On Mentorship</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience real construction sites and learn directly from active developers
-          </p>
-        </div>
+      <div className="grid md:grid-cols-3 gap-8">
+        <CourseCard
+          title="Real Estate Developer Course"
+          description="Step-by-step system to become a successful developer"
+          features={[
+            "Complete development process from A-Z",
+            "Land acquisition and feasibility analysis",
+            "Project financing and investor relations",
+            "Construction management and oversight"
+          ]}
+          gradient="from-blue-500 to-purple-600"
+          buttonText="Become a Developer"
+          buttonColor="bg-blue-600 hover:bg-blue-700"
+          courseType="development"
+        />
+        
+        <CourseCard
+          title="General Contractor Licensing Course"
+          description="Get licensed to build in 17 states"
+          features={[
+            "Complete NASCLA exam preparation",
+            "Multi-state contracting opportunities",
+            "Business law and safety regulations",
+            "High pass rate guarantee"
+          ]}
+          gradient="from-green-500 to-blue-600"
+          buttonText="Get Licensed"
+          buttonColor="bg-green-600 hover:bg-green-700"
+          courseType="nascla"
+        />
 
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-8 md:p-12 text-white">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-3xl font-bold mb-6">Construction Site Experience</h3>
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Visit active construction projects",
-                  "Meet contractors, architects, and investors",
-                  "Learn project management in real-time",
-                  "Build your professional network"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <Star className="w-6 h-6 text-yellow-300 mt-1 mr-3 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button 
-                onClick={() => handleCourseNavigation('mentorship')}
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-lg font-bold transition-colors hover:shadow-lg"
-              >
-                Join Our Mentorship
-              </button>
-            </div>
-            <div className="text-center">
-            <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
-                <h4 className="text-2xl font-bold mb-4">Limited Spots Available</h4>
-                <p className="text-blue-100 mb-4">
-                  We maintain small group sizes to ensure personalized attention and maximum learning
-                </p>
-                <div className="text-4xl font-bold text-yellow-300">6-8</div>
-                <p className="text-blue-100">Students per cohort</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Mentorship as another card */}
+        <CourseCard
+          title="Hands-On Mentorship"
+          description="Learn directly from active developers on real projects"
+          features={[
+            "Visit active construction sites",
+            "Meet contractors, architects, and investors",
+            "Learn project management in real-time",
+            "Build your professional network"
+          ]}
+          gradient="from-purple-600 to-pink-500"
+          buttonText="Join Our Mentorship"
+          buttonColor="bg-purple-600 hover:bg-purple-700"
+          courseType="mentorship"
+        />
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
+
 
   // About Section
   const AboutSection = () => (
@@ -486,7 +452,6 @@ const Home = () => {
       <Header />
       <HeroSection />
       <CoursesSection />
-      <MentorshipSection />
       <AboutSection />
       <CTASection />
       <ContactForm />
