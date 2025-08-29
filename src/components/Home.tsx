@@ -56,7 +56,7 @@ const Home = () => {
               onClick={() => openContactForm('consultation')}
               className="bg-blue-500 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
             >
-              Book Free Call
+              Schedule a call
             </button>
           </nav>
           
@@ -133,7 +133,7 @@ const Home = () => {
               onClick={() => openContactForm('consultation')}
               className="border-2 border-white hover:bg-white hover:text-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
-              Book Free Consultation
+              Schedule a Free Call
             </button>
           </div>
         </div>
@@ -227,7 +227,7 @@ const Home = () => {
         <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-8 md:p-12 text-white">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-3xl font-bold mb-6">Live Site Experience</h3>
+              <h3 className="text-3xl font-bold mb-6">Construction Site Experience</h3>
               <ul className="space-y-4 mb-8">
                 {[
                   "Visit active construction projects",
@@ -361,7 +361,7 @@ const Home = () => {
             onClick={() => openContactForm('consultation')}
             className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            Book Your Free Call
+            Schedule Your Free Call
           </button>
           <button 
             onClick={() => openContactForm('all')}
@@ -438,7 +438,7 @@ const Home = () => {
                   <option value="">Select a program</option>
                   <option value="development">Real Estate Development</option>
                   <option value="nascla">NASCLA Licensing</option>
-                  <option value="mentorship">Live Site Mentorship</option>
+                  <option value="mentorship">Construction Site Mentorship</option>
                   <option value="consultation">Free Consultation</option>
                 </select>
               </div>
