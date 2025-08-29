@@ -3,6 +3,7 @@ import { Menu, X, CheckCircle, Users, Book, Building, Star } from 'lucide-react'
 import BrixBuildsLogo from "../img/brixbuildslogo.png"
 import Jordan from "../img/jordan.png"
 import Tatyana from "../img/tatyana.png"
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -18,6 +19,8 @@ const Home = () => {
     message: ''
   });
 
+  const navigate = useNavigate();
+
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
     alert('Thank you for your interest! We will contact you within 24 hours to schedule your consultation.');
@@ -29,6 +32,16 @@ const Home = () => {
     setSelectedCourse(course);
     setFormData(prev => ({ ...prev, course }));
     setShowContactForm(true);
+  };
+
+  const handleCourseNavigation = (courseType: string) => {
+      if (courseType === 'development') {
+        navigate('/redevelopment');
+      } else if (courseType === 'nascla') {
+        navigate('/nasclaprep');
+      } else if (courseType === 'mentorship') {
+        navigate('/mentorship');
+      }
   };
 
   // Header Component
@@ -158,7 +171,7 @@ const Home = () => {
           ))}
         </ul>
         <button 
-          onClick={() => openContactForm(courseType)}
+          onClick={() => handleCourseNavigation(courseType)}
           className={`w-full ${buttonColor} text-white py-3 px-6 rounded-lg font-semibold transition-colors hover:shadow-lg`}
         >
           {buttonText}
@@ -189,7 +202,7 @@ const Home = () => {
               "Construction management and oversight"
             ]}
             gradient="from-blue-500 to-purple-600"
-            buttonText="Learn More"
+            buttonText="Become a Developer"
             buttonColor="bg-blue-600 hover:bg-blue-700"
             courseType="development"
           />
@@ -242,7 +255,7 @@ const Home = () => {
                 ))}
               </ul>
               <button 
-                onClick={() => openContactForm('mentorship')}
+                onClick={() => handleCourseNavigation('mentorship')}
                 className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-lg font-bold transition-colors hover:shadow-lg"
               >
                 Join Our Mentorship
