@@ -740,7 +740,7 @@ const BrixBuildsWebsite = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
-                    <p className="text-gray-600">(214) 555-0100</p>
+                    <p className="text-gray-600">(469) 466-1002</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
