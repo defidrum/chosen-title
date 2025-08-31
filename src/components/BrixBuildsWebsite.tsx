@@ -61,7 +61,6 @@ const BrixBuildsWebsite = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Hero image carousel
   const heroImages = [
     {
       gradient: 'from-slate-900 via-blue-900 to-slate-800',
