@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {  Menu, X, Home, Building2, Hammer, HardHat, Wrench, ClipboardCheck, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowRight, Check, Star, Users, TrendingUp, Award, PlayCircle, Calendar, Shield, Zap, Target } from 'lucide-react';
+import {  Menu, X, Home, Building2, Hammer, ClipboardCheck, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowRight, Check, Star, Users, TrendingUp, Award, PlayCircle, Calendar, Shield, Zap, Target } from 'lucide-react';
+import XIcon from '@mui/icons-material/X';
+import { SiTiktok, SiLinkedin } from 'react-icons/si';
 import BrixBuildsLogoWhiteLetters from "../img/transparent-brix-logo.png";
 import BrixBuildsLogoGreyLetters from "../img/brix-logo-grey.png";
 import Tatyana from "../img/tatyana.png";
@@ -757,15 +759,24 @@ const BrixBuildsWebsite = () => {
               <div className="mt-12">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h4>
                 <div className="flex gap-4">
-                  {[Facebook, Instagram, Twitter, Youtube].map((Icon, index) => (
-                    <button
-                      key={index}
-                      className="w-12 h-12 brix-background-col rounded-xl flex items-center justify-center text-white transition-all duration-300
-                      hover:bg-gradient-to-br hover:from-[#4B9CD3] hover:to-[#2C82BA]
-                      focus:outline-none focus:ring-2 focus:ring-[#4B9CD3]/40"
-         >
+                  {[{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/brix-builds-895a6b381', Icon: SiLinkedin },
+                    { label: 'TikTok', href: 'https://www.tiktok.com/@brixbuildshq', Icon: SiTiktok },
+                    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61580244831803', Icon: Facebook },
+                    { label: 'YouTube', href: 'https://www.youtube.com/channel/UCAH-3NVaNVi_A5UyqSrilaQ', Icon: Youtube },
+                    { label: 'Instagram', href: 'https://www.instagram.com/brixbuildshq/', Icon: Instagram },
+                    { label: 'X', href: 'https://x.com/brixbuildshq', Icon: XIcon }
+                  ].map(({ label, href, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-12 h-12 brix-background-col rounded-xl flex items-center justify-center text-white transition-all duration-300 hover:bg-gradient-to-br hover:from-[#4B9CD3] hover:to-[#2C82BA] focus:outline-none focus:ring-2 focus:ring-[#4B9CD3]/40"
+                    >
                       <Icon className="w-5 h-5" />
-                    </button>
+                      <span className="sr-only">{label}</span>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -935,7 +946,6 @@ const BrixBuildsWebsite = () => {
                 <li className="text-gray-400">Residential Development</li>
                 <li className="text-gray-400">Commercial Real Estate</li>
                 <li className="text-gray-400">Mixed-Use Projects</li>
-                <li className="text-gray-400">Investment Advisory</li>
               </ul>
             </div>
             
