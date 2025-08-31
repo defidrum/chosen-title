@@ -601,10 +601,8 @@ const BrixBuildsWebsite = () => {
                   <h3 className="text-2xl font-bold text-gray-900">Jordan Drummond</h3>
                   <p className="text-gray-600 font-medium">Managing Partner • Development</p>
                   <p className="mt-3 text-gray-600 leading-relaxed">
-                    Oversees acquisitions, deal structuring, and project financing. Expertise in site selection, entitlements,
-                    and driving financial performance across residential, commercial, and mixed-use projects.
+                  Oversees acquisitions, deal structuring, and project financing with expertise in site selection. Builds partnerships to align vision and secure capital. Develops strategies that balance financial goals with long-term community impact.
                   </p>
-
                   <div className="mt-4 flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-semibold rounded-full text-white brix-background-col">Acquisition Lead</span>
                     <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">Deal Financing</span>
@@ -648,8 +646,10 @@ const BrixBuildsWebsite = () => {
                   <p className="text-gray-600 font-medium">Managing Partner • Construction</p>
                   <p className="mt-3 text-gray-600 leading-relaxed">
                     Leads pre-construction, procurement, and field operations with a focus on quality &amp; safety for residential,
-                    commercial, and apartment projects.
+                    commercial, and apartment projects. Expertise in streamlining processes and guiding teams to deliver consistent,
+                    high-quality outcomes.
                   </p>
+
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-semibold rounded-full text-white brix-background-col">Construction Lead</span>
