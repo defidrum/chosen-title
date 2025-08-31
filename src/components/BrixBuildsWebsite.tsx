@@ -733,7 +733,7 @@ const BrixBuildsWebsite = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-1">Office Location</h4>
-                    <p className="text-gray-600">5850 Granite Parkway, Suite 100<br />Plano, TX 75024</p>
+                    <p className="text-gray-600">8330 Lyndon B Johnson FWY Ste B360<br />Dallas, TX 75243</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
