@@ -239,7 +239,7 @@ const BrixBuildsWebsite = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Services', 'About', 'Our Leadership', 'Contact'].map((item) => (
+              {['Services', 'About', 'Leadership', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -565,12 +565,12 @@ const BrixBuildsWebsite = () => {
         </div>
       </section>
 
-      <section id="our leadership" className="py-24 bg-gray-50">
+      <section id="leadership" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
               Our Leadership
-            </h2>
+            </h2> 
             <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
               Jordan Drummond &amp; Tatyana Dorcinvil lead Brix Builds across Texas and 17 other states specializing in
               residential, commercial, apartments, and mixed-use developments.
@@ -581,7 +581,7 @@ const BrixBuildsWebsite = () => {
             {/* Jordan */}
             <article
               className={`group bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-700 transform ${
-                visibleSections.has('team') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                visibleSections.has('leadership') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
             >
               <div className="flex items-start gap-6">
@@ -627,7 +627,7 @@ const BrixBuildsWebsite = () => {
             {/* Tatyana */}
             <article
               className={`group bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-700 transform ${
-                visibleSections.has('team') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                visibleSections.has('leadership') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
             >
               <div className="flex items-start gap-6">
