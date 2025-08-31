@@ -910,85 +910,82 @@ const BrixBuildsWebsite = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    {/* Main Footer Grid */}
-    <div className="grid md:grid-cols-5 gap-12 lg:gap-20">
-      
-      {/* Logo + Description (spans 2 columns) */}
-      <div className="md:col-span-2 flex flex-col space-y-4">
-        <div className="flex items-center space-x-3">
-          <div className="w-16 h-16 bg-brix-500 rounded-lg flex items-center justify-center">
-            <img
-              src={BrixBuildsLogoWhiteLetters}
-              alt="Brix Builds Logo"
-              className="w-12 h-12 object-contain transform -translate-x-4"
-              draggable={false}
-            />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Main Footer Grid */}
+          <div className="grid md:grid-cols-5 gap-12 lg:gap-20">
+            
+            {/* Logo + Description (spans 2 columns) */}
+            <div className="md:col-span-2 flex flex-col space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-16 h-16 bg-brix-500 rounded-lg flex items-center justify-center">
+                  <img
+                    src={BrixBuildsLogoWhiteLetters}
+                    alt="Brix Builds Logo"
+                    className="w-12 h-12 object-contain transform -translate-x-4"
+                    draggable={false}
+                  />
+                </div>
+                <span className="text-2xl font-bold transform -translate-x-7">BRIX BUILDS</span>
+              </div>
+              <p className="text-gray-400 leading-relaxed max-w-md">
+                Premier real estate development and construction company creating
+                exceptional communities across Texas & across America.
+              </p>
+            </div>
+
+
+            {/* Quick Links + Services grouped */}
+            <div className="flex flex-col md:col-span-2 md:flex-row md:space-x-32 mt-2">
+              {/* Quick Links */}
+              <div className="flex flex-col space-y-4 mb-8 md:mb-0">
+                <h4 className="text-lg font-semibold">Quick Links</h4>
+                <ul className="space-y-2">
+                  {["Services", "About", "Contact"].map((item) => {
+                    const sectionId = item === "Contact" ? "contact-form" : item.toLowerCase();
+                    return (
+                      <li key={item}>
+                        <button
+                          onClick={() => scrollToSection(sectionId)}
+                          className="text-gray-400 hover:text-white transition-colors"
+                        >
+                          {item}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Services */}
+              <div className="flex flex-col space-y-4">
+                <h4 className="text-lg font-semibold">Services</h4>
+                <ul className="space-y-2">
+                  <li className="text-gray-400">Residential Development</li>
+                  <li className="text-gray-400">Commercial Real Estate</li>
+                  <li className="text-gray-400">Mixed-Use Projects</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="flex flex-col space-y-4">
+              <h4 className="text-lg font-semibold">Contact Info</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>8330 Lyndon B Johnson FWY Ste B360</li>
+                <li>Dallas, TX 75243</li>
+                <li>(469) 466-1002</li>
+                <li>info@brixbuilds.com</li>
+              </ul>
+            </div>
           </div>
-          <span className="text-2xl font-bold transform -translate-x-7">BRIX BUILDS</span>
+
+          {/* Footer Bottom */}
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Brix Builds LLC. All rights reserved.</p>
+          </div>
         </div>
-        <p className="text-gray-400 leading-relaxed max-w-md">
-          Premier real estate development and construction company creating
-          exceptional communities across Texas & across America.
-        </p>
-      </div>
-
-
-      {/* Quick Links + Services grouped */}
-      <div className="flex flex-col md:col-span-2 md:flex-row md:space-x-32 mt-2">
-        {/* Quick Links */}
-        <div className="flex flex-col space-y-4 mb-8 md:mb-0">
-          <h4 className="text-lg font-semibold">Quick Links</h4>
-          <ul className="space-y-2">
-            {["Services", "About", "Contact"].map((item) => {
-              const sectionId = item === "Contact" ? "contact-form" : item.toLowerCase();
-              return (
-                <li key={item}>
-                  <button
-                    onClick={() => scrollToSection(sectionId)}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {item}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div className="flex flex-col space-y-4">
-          <h4 className="text-lg font-semibold">Services</h4>
-          <ul className="space-y-2">
-            <li className="text-gray-400">Residential Development</li>
-            <li className="text-gray-400">Commercial Real Estate</li>
-            <li className="text-gray-400">Mixed-Use Projects</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Contact Info */}
-      <div className="flex flex-col space-y-4">
-        <h4 className="text-lg font-semibold">Contact Info</h4>
-        <ul className="space-y-2 text-gray-400">
-          <li>8330 Lyndon B Johnson FWY Ste B360</li>
-          <li>Dallas, TX 75243</li>
-          <li>(469) 466-1002</li>
-          <li>info@brixbuilds.com</li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Footer Bottom */}
-    <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-      <p>&copy; 2025 Brix Builds LLC. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
-
-
-
+      </footer>
     </div>
   );
 };
