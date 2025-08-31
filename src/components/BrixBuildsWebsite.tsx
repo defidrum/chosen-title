@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {  Menu, X, Home, Building2, Hammer, HardHat, Wrench, ClipboardCheck, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowRight, Check, Star, Users, TrendingUp, Award, PlayCircle, Calendar, Shield, Zap, Target } from 'lucide-react';
-import BrixBuildsLogo from "../img/brixbuildslogo.png";
+import BrixBuildsLogoWhiteLetters from "../img/transparent-brix-logo.png";
+import BrixBuildsLogoGreyLetters from "../img/brix-logo-grey.png";
+import "./brix.css"
 
 const BrixBuildsWebsite = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,18 +13,8 @@ const BrixBuildsWebsite = () => {
   const heroImages = [
     {
       gradient: 'from-slate-900 via-blue-900 to-slate-800',
-      title: 'Luxury Residential Development',
+      title: 'Residential Development',
       subtitle: 'Premium Communities'
-    },
-    {
-      gradient: 'from-indigo-900 via-purple-900 to-pink-900',
-      title: 'Commercial Real Estate',
-      subtitle: 'Strategic Investments'
-    },
-    {
-      gradient: 'from-emerald-900 via-teal-900 to-cyan-900',
-      title: 'Mixed-Use Developments',
-      subtitle: 'Integrated Living'
     }
   ];
 
@@ -70,16 +62,16 @@ const BrixBuildsWebsite = () => {
 
   const services = [
     {
-      icon: <Building2 className="w-8 h-8" />,
-      title: 'Luxury Residential Development',
+      icon: <Home className="w-8 h-8" />,
+      title: 'Residential Development',
       description: 'Premium single-family communities, luxury condominiums, and exclusive estate developments designed for discerning buyers.',
       features: ['Custom Architecture', 'Premium Amenities', 'Smart Home Technology'],
       color: 'from-blue-600 to-indigo-700'
     },
     {
-      icon: <Home className="w-8 h-8" />,
+      icon: <Building2 className="w-8 h-8" />,
       title: 'Commercial Real Estate',
-      description: 'Strategic commercial developments including office complexes, retail centers, and industrial facilities with strong ROI potential.',
+      description: 'Strategic commercial and multifamily developments including apartments, office complexes, retail centers, and industrial facilities with strong ROI potential.',
       features: ['Prime Locations', 'Tenant-Ready Spaces', 'Investment Grade'],
       color: 'from-purple-600 to-violet-700'
     },
@@ -89,27 +81,6 @@ const BrixBuildsWebsite = () => {
       description: 'Integrated communities combining residential, retail, and commercial spaces to create vibrant, walkable neighborhoods.',
       features: ['Live-Work-Play', 'Sustainable Design', 'Community Focus'],
       color: 'from-emerald-600 to-teal-700'
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: 'Build-to-Suit Construction',
-      description: 'Custom development solutions tailored to specific client requirements with end-to-end project management.',
-      features: ['Custom Design', 'Turnkey Solutions', 'Quality Assurance'],
-      color: 'from-orange-600 to-red-600'
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: 'Investment Advisory',
-      description: 'Strategic guidance on real estate investments, market analysis, and development opportunities in high-growth markets.',
-      features: ['Market Analysis', 'ROI Optimization', 'Risk Assessment'],
-      color: 'from-cyan-600 to-blue-700'
-    },
-    {
-      icon: <ClipboardCheck className="w-8 h-8" />,
-      title: 'Project Management',
-      description: 'Comprehensive project oversight from conceptual design through completion, ensuring timely delivery and budget adherence.',
-      features: ['Timeline Management', 'Quality Control', 'Stakeholder Communication'],
-      color: 'from-indigo-600 to-purple-700'
     }
   ];
 
@@ -140,33 +111,6 @@ const BrixBuildsWebsite = () => {
       value: '$95M',
       status: 'Completed 2023',
       features: ['LEED Certified', '15 Floors', 'Conference Centers']
-    },
-    {
-      title: 'The Reserve at Legacy',
-      location: 'Plano, TX',
-      description: 'Luxury townhome community near Legacy West',
-      category: 'Residential',
-      value: '$65M',
-      status: 'Completed 2024',
-      features: ['84 Townhomes', 'Resort Amenities', 'Walkable Design']
-    },
-    {
-      title: 'Innovation District',
-      location: 'Richardson, TX',
-      description: 'Tech-focused mixed development',
-      category: 'Mixed-Use',
-      value: '$150M',
-      status: 'Planning Phase',
-      features: ['Innovation Hub', 'Live-Work Units', 'Public Spaces']
-    },
-    {
-      title: 'Westside Commons',
-      location: 'Fort Worth, TX',
-      description: 'Affordable luxury apartment community',
-      category: 'Residential',
-      value: '$45M',
-      status: 'Under Construction',
-      features: ['300 Units', 'Amenity Rich', 'Transit Oriented']
     }
   ];
 
@@ -197,7 +141,7 @@ const BrixBuildsWebsite = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent">
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
@@ -214,7 +158,7 @@ const BrixBuildsWebsite = () => {
             >
               {/* Logo */}
               <img
-                src={BrixBuildsLogo}
+                src={isScrolled ? BrixBuildsLogoGreyLetters : BrixBuildsLogoWhiteLetters}
                 alt="Brix Builds Logo"
                 className="w-12 h-12 object-contain"
               />
@@ -233,7 +177,7 @@ const BrixBuildsWebsite = () => {
                     isScrolled ? "text-gray-600" : "text-white/80"
                   }`}
                 >
-                  DEVELOPMENT GROUP
+                  REAL ESTATE DEVELOPMENT GROUP
                 </div>
               </div>
             </div>
@@ -253,7 +197,7 @@ const BrixBuildsWebsite = () => {
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('contact-form')}
                 className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
               >
                 Schedule Consultation
@@ -284,7 +228,7 @@ const BrixBuildsWebsite = () => {
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('contact-form')}
                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-3 rounded-lg font-semibold mt-4"
               >
                 Schedule Consultation
@@ -324,11 +268,8 @@ const BrixBuildsWebsite = () => {
                 Creating Futures
               </span>
             </h1>
-            <p className="text-2xl md:text-3xl text-white/90 mb-4 font-light">
-              {heroImages[currentImageIndex].subtitle}
-            </p>
             <p className="text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Premier real estate development and construction solutions in Dallas-Fort Worth. 
+              Premier real estate development and construction solutions in Dallas-Fort Worth & 17 other states. 
               Creating exceptional communities and commercial spaces that define tomorrow's landscape.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -340,7 +281,7 @@ const BrixBuildsWebsite = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('contact-form')}
                 className="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <Calendar className="w-5 h-5" />
@@ -593,7 +534,7 @@ const BrixBuildsWebsite = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('contact-form')}
               className="px-10 py-4 bg-white text-gray-900 rounded-full font-bold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
             >
               Start Your Project
@@ -625,7 +566,7 @@ const BrixBuildsWebsite = () => {
               <h3 className="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 brix-background-col rounded-xl flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -634,7 +575,7 @@ const BrixBuildsWebsite = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 brix-background-col rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -643,7 +584,7 @@ const BrixBuildsWebsite = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center flex-shrink-0">
+                 <div className="w-12 h-12 brix-background-col rounded-xl flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -659,8 +600,10 @@ const BrixBuildsWebsite = () => {
                   {[Facebook, Instagram, Twitter, Youtube].map((Icon, index) => (
                     <button
                       key={index}
-                      className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-indigo-700 hover:text-white transition-all duration-300"
-                    >
+                      className="w-12 h-12 brix-background-col rounded-xl flex items-center justify-center text-white transition-all duration-300
+                      hover:bg-gradient-to-br hover:from-[#4B9CD3] hover:to-[#2C82BA]
+                      focus:outline-none focus:ring-2 focus:ring-[#4B9CD3]/40"
+         >
                       <Icon className="w-5 h-5" />
                     </button>
                   ))}
@@ -668,9 +611,9 @@ const BrixBuildsWebsite = () => {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-3xl p-8">
+            <div id="contact-form" className="bg-gray-50 rounded-3xl p-8 scroll-mt-28">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule a Consultation</h3>
-              <form className="space-y-6">
+                <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="text"
@@ -698,7 +641,6 @@ const BrixBuildsWebsite = () => {
                   <option>Residential Development</option>
                   <option>Commercial Development</option>
                   <option>Mixed-Use Development</option>
-                  <option>Build-to-Suit</option>
                   <option>Investment Advisory</option>
                 </select>
                 <textarea
@@ -722,17 +664,23 @@ const BrixBuildsWebsite = () => {
       <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">BRIX BUILDS</span>
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                Premier real estate development and construction company creating exceptional communities across Texas.
-              </p>
+          <div>
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="w-16 h-16 bg-brix-500 rounded-lg flex items-center justify-center">
+              <img
+                src={BrixBuildsLogoWhiteLetters}
+                alt="Brix Builds Logo"
+                className="ml-6 w-12 h-12 object-contain"
+                draggable={false}
+              />
             </div>
+            <span className="text-2xl font-bold">BRIX BUILDS</span>
+          </div>
+          <p className="text-gray-400 leading-relaxed">
+            Premier real estate development and construction company creating exceptional communities across Texas.
+          </p>
+        </div>
+
             
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
@@ -763,16 +711,16 @@ const BrixBuildsWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>5850 Granite Parkway</li>
-                <li>Plano, TX 75024</li>
-                <li>(214) 555-0100</li>
+                <li>8330 Lyndon B Johnson FWY Ste B360</li>
+                <li>Dallas, TX 75243</li>
+                <li>(469) 466-1002</li>
                 <li>info@brixbuilds.com</li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Brix Builds Development Group. All rights reserved.</p>
+            <p>&copy; 2025 Brix Builds LLC. All rights reserved.</p>
           </div>
         </div>
       </footer>
