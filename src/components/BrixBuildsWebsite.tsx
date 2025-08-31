@@ -2,21 +2,35 @@ import React, { useState, useEffect } from 'react';
 import {  Menu, X, Home, Building2, Hammer, HardHat, Wrench, ClipboardCheck, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowRight, Check, Star, Users, TrendingUp, Award, PlayCircle, Calendar, Shield, Zap, Target } from 'lucide-react';
 import BrixBuildsLogoWhiteLetters from "../img/transparent-brix-logo.png";
 import BrixBuildsLogoGreyLetters from "../img/brix-logo-grey.png";
+import Tatyana from "../img/tatyana.png";
+import Jordan from "../img/jordan.png";
 import "./brix.css"
+
+const FORM_ENDPOINT = "https://formspree.io/f/myzdwogo";
+
 
 const BrixBuildsWebsite = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [tz, setTz] = useState<string>("");
+  const [minDt, setMinDt] = useState<string>("");
+  
+  useEffect(() => {
+    setTz(Intl.DateTimeFormat().resolvedOptions().timeZone);
+    const toLocal = (d: Date) => {
+      const off = d.getTimezoneOffset();
+      const local = new Date(d.getTime() - off * 60000);
+      return local.toISOString().slice(0, 16);
+    };
+    setMinDt(toLocal(new Date()));
+  }, []);
+  
 
-  const heroImages = [
-    {
-      gradient: 'from-slate-900 via-blue-900 to-slate-800',
-      title: 'Residential Development',
-      subtitle: 'Premium Communities'
-    }
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +60,14 @@ const BrixBuildsWebsite = () => {
   }, []);
 
   // Hero image carousel
+  const heroImages = [
+    {
+      gradient: 'from-slate-900 via-blue-900 to-slate-800',
+      title: 'Residential Development',
+      subtitle: 'Premium Communities'
+    }
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
@@ -53,12 +75,13 @@ const BrixBuildsWebsite = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  const stats = [
-    { number: '150+', label: 'Properties Developed', icon: <Building2 className="w-6 h-6" /> },
-    { number: '15+', label: 'Years Experience', icon: <Award className="w-6 h-6" /> },
-    { number: '98%', label: 'Client Satisfaction', icon: <Star className="w-6 h-6" /> },
-    { number: '$250M+', label: 'Portfolio Value', icon: <TrendingUp className="w-6 h-6" /> }
-  ];
+
+  // const stats = [
+  //   { number: '150+', label: 'Properties Developed', icon: <Building2 className="w-6 h-6" /> },
+  //   { number: '15+', label: 'Years Experience', icon: <Award className="w-6 h-6" /> },
+  //   { number: '98%', label: 'Client Satisfaction', icon: <Star className="w-6 h-6" /> },
+  //   { number: '$250M+', label: 'Portfolio Value', icon: <TrendingUp className="w-6 h-6" /> }
+  // ];
 
   const services = [
     {
@@ -114,30 +137,62 @@ const BrixBuildsWebsite = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Sarah Chen',
-      role: 'Private Investor',
-      content: 'Brix Builds delivered exceptional ROI on our residential development. Their attention to market trends and quality construction is unmatched.',
-      rating: 5
-    },
-    {
-      name: 'Michael Rodriguez',
-      role: 'Commercial Property Owner',
-      content: 'From site selection to tenant delivery, their team managed every detail flawlessly. Our office complex was completed ahead of schedule.',
-      rating: 5
-    },
-    {
-      name: 'Jennifer Park',
-      role: 'Homebuyer',
-      content: 'We purchased in Pinnacle Estates and couldn\'t be happier. The quality, amenities, and community feel exceeded all our expectations.',
-      rating: 5
-    }
-  ];
+  // const testimonials = [
+  //   {
+  //     name: 'Sarah Chen',
+  //     role: 'Private Investor',
+  //     content: 'Brix Builds delivered exceptional ROI on our residential development. Their attention to market trends and quality construction is unmatched.',
+  //     rating: 5
+  //   },
+  //   {
+  //     name: 'Michael Rodriguez',
+  //     role: 'Commercial Property Owner',
+  //     content: 'From site selection to tenant delivery, their team managed every detail flawlessly. Our office complex was completed ahead of schedule.',
+  //     rating: 5
+  //   },
+  //   {
+  //     name: 'Jennifer Park',
+  //     role: 'Homebuyer',
+  //     content: 'We purchased in Pinnacle Estates and couldn\'t be happier. The quality, amenities, and community feel exceeded all our expectations.',
+  //     rating: 5
+  //   }
+  // ];
 
   const scrollToSection = (sectionId: any) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setSending(true);
+    setSent(false);
+    setErrorMsg("");
+  
+    try {
+      const resp = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" }, 
+        body: new FormData(e.currentTarget),
+      });
+  
+      const data = await resp.json().catch(() => null);
+  
+      if (resp.ok) {
+        setSent(true);
+        e.currentTarget.reset();
+      } else {
+        const msg =
+          (data?.errors && data.errors.map((e: any) => e.message).join(" ")) ||
+          data?.error ||
+          `Request failed (${resp.status}). Please try again.`;
+        setErrorMsg(msg);
+      }
+    } catch (err) {
+      // setErrorMsg("Network request was blocked or failed. Check ad-blockers/CSP and try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -297,7 +352,7 @@ const BrixBuildsWebsite = () => {
       </section>
 
       {/* Stats Section */}
-      <section id="stats" className="py-20 bg-gray-50">
+      {/* <section id="stats" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -319,7 +374,7 @@ const BrixBuildsWebsite = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Services Section */}
       <section id="services" className="py-24 bg-white">
@@ -365,7 +420,7 @@ const BrixBuildsWebsite = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-24 bg-gray-50">
+      {/* <section id="portfolio" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
@@ -420,10 +475,10 @@ const BrixBuildsWebsite = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
@@ -451,7 +506,7 @@ const BrixBuildsWebsite = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About Section */}
       <section id="about" className="py-24 bg-gray-50">
@@ -464,16 +519,16 @@ const BrixBuildsWebsite = () => {
                 Excellence in Development
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Founded by industry veterans Jordan Drummond-Pugh and Tatyana Dorcinvil, Brix Builds represents the pinnacle of real estate development in Texas. Our NASCLA certification and track record of delivering over $250M in successful projects speak to our commitment to excellence.
+                Founded by industry veterans Jordan Drummond and Tatyana Dorcinvil, Brix Builds represents the pinnacle of real estate development in Texas. We are certified to build in 17 states and have a track record of delivering successful projects which speaks to our commitment to excellence.
               </p>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">15+</h4>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">8+</h4>
                   <p className="text-gray-600">Years Combined Experience</p>
                 </div>
                 <div>
                   <h4 className="text-2xl font-bold text-gray-900 mb-2">NASCLA</h4>
-                  <p className="text-gray-600">Certified Professionals</p>
+                  <p className="text-gray-600">Certified General Contractor</p>
                 </div>
               </div>
               <div className="space-y-4">
@@ -510,6 +565,121 @@ const BrixBuildsWebsite = () => {
         </div>
       </section>
 
+      <section id="team" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              Our Leadership
+            </h2>
+            <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+              Jordan Drummond &amp; Tatyana Dorcinvil lead Brix Builds across Texas and 17 NASCLA states—specializing in
+              residential, commercial &amp; <span className="font-semibold">apartments</span>, and mixed-use developments.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            {/* Jordan */}
+            <article
+              className={`group bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-700 transform ${
+                visibleSections.has('team') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+              }`}
+            >
+              <div className="flex items-start gap-6">
+                <img
+                  src={Jordan}
+                  alt="Jordan Drummond headshot"
+                  className="w-28 h-28 rounded-2xl object-cover ring-4 ring-[#4B9CD3]/20"
+                  draggable={false}
+                />
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Jordan Drummond</h3>
+                  <p className="text-gray-600 font-medium">Managing Partner • Development</p>
+                  <p className="mt-3 text-gray-600 leading-relaxed">
+                    Oversees site selection, entitlements, and vertical delivery. Track record across master-planned
+                    residential, apartments, and mixed-use projects.
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full text-white brix-background-col">Acquisition Lead</span>
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">Project Financing</span>
+                    {/* <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">$250M+ delivered</span> */}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Building2 className="w-4 h-4" /> Commercial &amp; Apartments
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Home className="w-4 h-4" /> Residential Communities
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Target className="w-4 h-4" /> Land Acquistion
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Target className="w-4 h-4" /> Mixed-Use Strategy
+                </span>
+              </div>
+            </article>
+
+            {/* Tatyana */}
+            <article
+              className={`group bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-700 transform ${
+                visibleSections.has('team') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+              }`}
+            >
+              <div className="flex items-start gap-6">
+                <img
+                  src={Tatyana}
+                  alt="Tatyana Dorcinvil headshot"
+                  className="w-28 h-28 rounded-2xl object-cover ring-4 ring-[#4B9CD3]/20"
+                  draggable={false}
+                />
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">Tatyana Dorcinvil</h3>
+                  <p className="text-gray-600 font-medium">Managing Partner • Construction</p>
+                  <p className="mt-3 text-gray-600 leading-relaxed">
+                    Leads pre-construction, procurement, and field operations with a focus on quality &amp; safety for residential,
+                    commercial, and apartment projects.
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full text-white brix-background-col">Construction Lead</span>
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">Project Manager</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Hammer className="w-4 h-4" /> Pre-construction
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Shield className="w-4 h-4" /> Safety &amp; Compliance
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <ClipboardCheck className="w-4 h-4" /> Quality Assurance
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Calendar className="w-4 h-4" /> Project Management
+                </span>
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => scrollToSection('contact-form')}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-white font-semibold brix-background-col hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+            >
+              Book a consultation <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900"></div>
@@ -528,12 +698,12 @@ const BrixBuildsWebsite = () => {
             >
               Start Your Project
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('portfolio')}
               className="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
             >
               View Our Work
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
@@ -602,47 +772,118 @@ const BrixBuildsWebsite = () => {
 
             <div id="contact-form" className="bg-gray-50 rounded-3xl p-8 scroll-mt-28">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule a Consultation</h3>
-                <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
+                    name="firstName"
                     type="text"
                     placeholder="First Name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:outline-none transition-colors"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors"
                   />
                   <input
+                    name="lastName"
                     type="text"
                     placeholder="Last Name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:outline-none transition-colors"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors"
                   />
                 </div>
+
                 <input
+                  name="email"
                   type="email"
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:outline-none transition-colors"
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors"
                 />
+
                 <input
+                  name="phone"
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors"
                 />
-                <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:outline-none transition-colors text-gray-600">
+
+                <select
+                  name="projectType"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors text-gray-600"
+                >
                   <option>Project Type</option>
                   <option>Residential Development</option>
                   <option>Commercial Development</option>
                   <option>Mixed-Use Development</option>
-                  <option>Investment Advisory</option>
                 </select>
+
                 <textarea
+                  name="message"
                   placeholder="Tell us about your project..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-600 focus:outline-none transition-colors resize-none"
-                ></textarea>
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors resize-none"
+                />
+
+                {/* spam trap (honeypot) */}
+                <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+
+                {/* optional metadata */}
+                <input type="hidden" name="source" value="brixbuilds.com/contact" />
+
+                <label className="block">
+                <span className="block text-sm font-semibold text-gray-700 mb-2">
+                  Preferred date & time
+                </span>
+                <input
+                  name="preferredDateTime"
+                  type="datetime-local"
+                  min={minDt}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors"
+                />
+              </label>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <label className="block">
+                  <span className="block text-sm font-semibold text-gray-700 mb-2">
+                    Duration
+                  </span>
+                  <select
+                    name="duration"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors text-gray-600"
+                  >
+                    <option value="15">15 minutes</option>
+                    <option value="30" selected>30 minutes</option>
+                    <option value="60">60 minutes</option>
+                  </select>
+                </label>
+
+                <label className="block">
+                  <span className="block text-sm font-semibold text-gray-700 mb-2">
+                    Preferred contact method
+                  </span>
+                  <select
+                    name="contactMethod"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brix focus:outline-none transition-colors text-gray-600"
+                  >
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>Video</option>
+                  </select>
+                </label>
+              </div>
+
+              <input type="hidden" name="timezone" value={tz} />
+
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+                  disabled={sending}
+                  className="w-full brix-background-col text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-60"
                 >
-                  Send Message
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
+
+                {sent && <p className="text-green-600 text-sm">Thanks! We’ll be in touch shortly.</p>}
+                {errorMsg && <p className="text-red-600 text-sm">{errorMsg}</p>}
               </form>
             </div>
           </div>
