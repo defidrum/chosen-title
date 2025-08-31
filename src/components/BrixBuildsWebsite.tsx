@@ -108,35 +108,35 @@ const BrixBuildsWebsite = () => {
     }
   ];
 
-  const portfolioItems = [
-    {
-      title: 'Pinnacle Estates',
-      location: 'Frisco, TX',
-      description: 'Luxury gated community with 48 custom homes',
-      category: 'Residential',
-      value: '$85M',
-      status: 'Completed 2024',
-      features: ['Gated Community', '2-3 Acre Lots', 'Private Lake']
-    },
-    {
-      title: 'Metropolitan Plaza',
-      location: 'Dallas, TX',
-      description: 'Mixed-use development with retail and residential',
-      category: 'Mixed-Use',
-      value: '$120M',
-      status: 'Under Construction',
-      features: ['200 Units', 'Retail Space', 'Parking Garage']
-    },
-    {
-      title: 'Corporate Center West',
-      location: 'Irving, TX',
-      description: 'Class A office complex with modern amenities',
-      category: 'Commercial',
-      value: '$95M',
-      status: 'Completed 2023',
-      features: ['LEED Certified', '15 Floors', 'Conference Centers']
-    }
-  ];
+  // const portfolioItems = [
+  //   {
+  //     title: 'Pinnacle Estates',
+  //     location: 'Frisco, TX',
+  //     description: 'Luxury gated community with 48 custom homes',
+  //     category: 'Residential',
+  //     value: '$85M',
+  //     status: 'Completed 2024',
+  //     features: ['Gated Community', '2-3 Acre Lots', 'Private Lake']
+  //   },
+  //   {
+  //     title: 'Metropolitan Plaza',
+  //     location: 'Dallas, TX',
+  //     description: 'Mixed-use development with retail and residential',
+  //     category: 'Mixed-Use',
+  //     value: '$120M',
+  //     status: 'Under Construction',
+  //     features: ['200 Units', 'Retail Space', 'Parking Garage']
+  //   },
+  //   {
+  //     title: 'Corporate Center West',
+  //     location: 'Irving, TX',
+  //     description: 'Class A office complex with modern amenities',
+  //     category: 'Commercial',
+  //     value: '$95M',
+  //     status: 'Completed 2023',
+  //     features: ['LEED Certified', '15 Floors', 'Conference Centers']
+  //   }
+  // ];
 
   // const testimonials = [
   //   {
@@ -405,7 +405,7 @@ const BrixBuildsWebsite = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="p-8">
-                  <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className={`mx-auto flex items-center justify-center w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     {service.icon}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
@@ -614,21 +614,7 @@ const BrixBuildsWebsite = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm font-normal">
-                  <Building2 className="w-4 h-4" />
-                  Commercial &amp; Apartments
-                </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
-                  <Home className="w-4 h-4" /> Residential Communities
-                </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
-                  <Target className="w-4 h-4" /> Land Acquistion
-                </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
-                  <Target className="w-4 h-4" /> Mixed-Use Strategy
-                </span>
-              </div>
+
             </article>
 
             {/* Tatyana */}
