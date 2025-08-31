@@ -239,7 +239,7 @@ const BrixBuildsWebsite = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((item) => (
+              {['Services', 'About', 'Our Leadership', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -324,7 +324,7 @@ const BrixBuildsWebsite = () => {
               </span>
             </h1>
             <p className="text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Premier real estate development and construction solutions in Dallas-Fort Worth & 17 other states. 
+              Premier real estate development and construction solutions in Texas & 17 other states. 
               Creating exceptional communities and commercial spaces that define tomorrow's landscape.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -519,7 +519,7 @@ const BrixBuildsWebsite = () => {
                 Excellence in Development
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Founded by industry veterans Jordan Drummond and Tatyana Dorcinvil, Brix Builds represents the pinnacle of real estate development in Texas. We are certified to build in 17 states and have a track record of delivering successful projects which speaks to our commitment to excellence.
+                Founded by industry veterans Jordan Drummond and Tatyana Dorcinvil, Brix Builds represents the pinnacle of real estate development in Texas. Our company is certified to build in 17 states and have a track record of delivering successful projects which speaks to our commitment to excellence.
               </p>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div>
@@ -565,15 +565,15 @@ const BrixBuildsWebsite = () => {
         </div>
       </section>
 
-      <section id="team" className="py-24 bg-gray-50">
+      <section id="our leadership" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
               Our Leadership
             </h2>
             <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-              Jordan Drummond &amp; Tatyana Dorcinvil lead Brix Builds across Texas and 17 NASCLA states—specializing in
-              residential, commercial &amp; <span className="font-semibold">apartments</span>, and mixed-use developments.
+              Jordan Drummond &amp; Tatyana Dorcinvil lead Brix Builds across Texas and 17 other states specializing in
+              residential, commercial, apartments, and mixed-use developments.
             </p>
           </div>
 
@@ -608,10 +608,11 @@ const BrixBuildsWebsite = () => {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
-                  <Building2 className="w-4 h-4" /> Commercial &amp; Apartments
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm font-normal">
+                  <Building2 className="w-4 h-4" />
+                  Commercial &amp; Apartments
                 </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
                   <Home className="w-4 h-4" /> Residential Communities
                 </span>
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
@@ -907,7 +908,7 @@ const BrixBuildsWebsite = () => {
             <span className="text-2xl font-bold">BRIX BUILDS</span>
           </div>
           <p className="text-gray-400 leading-relaxed">
-            Premier real estate development and construction company creating exceptional communities across Texas.
+            Premier real estate development and construction company creating exceptional communities across Texas & across America.
           </p>
         </div>
 
@@ -915,7 +916,7 @@ const BrixBuildsWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                {['Services', 'Portfolio', 'About', 'Contact'].map((item) => (
+                {['Services', 'About', 'Contact'].map((item) => (
                   <li key={item}>
                     <button
                       onClick={() => scrollToSection(item.toLowerCase())}
