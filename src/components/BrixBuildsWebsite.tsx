@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  Menu, X, Home, Building2, Hammer, ClipboardCheck, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowRight, Check, Star, Users, TrendingUp, Award, PlayCircle, Calendar, Shield, Zap, Target } from 'lucide-react';
+import {  Menu, X, Home, Building2, Hammer, ClipboardCheck, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, ArrowRight, Check, Star, Users, TrendingUp, Award, PlayCircle, Calendar, Shield, Zap, Target, DollarSign } from 'lucide-react';
 import XIcon from '@mui/icons-material/X';
 import { SiTiktok, SiLinkedin } from 'react-icons/si';
 import BrixBuildsLogoWhiteLetters from "../img/transparent-brix-logo.png";
@@ -585,7 +585,6 @@ const BrixBuildsWebsite = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
-            {/* Jordan */}
             <article
               className={`group bg-white rounded-3xl shadow-lg border border-gray-100 p-8 transition-all duration-700 transform ${
                 visibleSections.has('leadership') ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
@@ -602,20 +601,34 @@ const BrixBuildsWebsite = () => {
                   <h3 className="text-2xl font-bold text-gray-900">Jordan Drummond</h3>
                   <p className="text-gray-600 font-medium">Managing Partner • Development</p>
                   <p className="mt-3 text-gray-600 leading-relaxed">
-                    Oversees site selection, entitlements, and vertical delivery. Track record across master-planned
-                    residential, apartments, and mixed-use projects.
+                    Oversees acquisitions, deal structuring, and project financing. Expertise in site selection, entitlements,
+                    and driving financial performance across residential, commercial, and mixed-use projects.
                   </p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     <span className="px-3 py-1 text-xs font-semibold rounded-full text-white brix-background-col">Acquisition Lead</span>
-                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">Project Financing</span>
-                    {/* <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">$250M+ delivered</span> */}
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-700">Deal Financing</span>
                   </div>
                 </div>
               </div>
 
-
+              {/* Icon-based highlights */}
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Target className="w-4 h-4" /> Strategic Acquisitions
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <TrendingUp className="w-4 h-4" /> Deal Structuring
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <DollarSign className="w-4 h-4" /> Project Financing
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
+                  <Users className="w-4 h-4" /> Partnerships &amp; JV
+                </span>
+              </div>
             </article>
+
 
             {/* Tatyana */}
             <article
@@ -645,7 +658,7 @@ const BrixBuildsWebsite = () => {
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 text-gray-700 text-sm">
                   <Hammer className="w-4 h-4" /> Pre-construction
                 </span>
@@ -659,6 +672,7 @@ const BrixBuildsWebsite = () => {
                   <Calendar className="w-4 h-4" /> Project Management
                 </span>
               </div>
+
             </article>
           </div>
 
