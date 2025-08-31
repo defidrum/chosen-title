@@ -905,27 +905,26 @@ const BrixBuildsWebsite = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-          <div>
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="w-16 h-16 bg-brix-500 rounded-lg flex items-center justify-center">
-              <img
-                src={BrixBuildsLogoWhiteLetters}
-                alt="Brix Builds Logo"
-                className="ml-6 w-12 h-12 object-contain"
-                draggable={false}
-              />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid md:grid-cols-4 gap-8">
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+              <div className="w-16 h-16 bg-brix-500 rounded-lg flex items-center justify-center">
+                <img
+                  src={BrixBuildsLogoWhiteLetters}
+                  alt="Brix Builds Logo"
+                  className="ml-6 w-12 h-12 object-contain"
+                  draggable={false}
+                />
+              </div>
+              <span className="text-2xl font-bold">BRIX BUILDS</span>
             </div>
-            <span className="text-2xl font-bold">BRIX BUILDS</span>
+            <p className="text-gray-400 leading-relaxed max-w-2xl">
+              Premier real estate development and construction company creating
+              exceptional communities across Texas & across America.
+            </p>
           </div>
-          <p className="text-gray-400 leading-relaxed">
-            Premier real estate development and construction company creating exceptional communities across Texas & across America.
-          </p>
-        </div>
-
-            
-            <div>
+          <div className='ml-25'>
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {['Services', 'About', 'Contact'].map((item) => (
@@ -960,6 +959,7 @@ const BrixBuildsWebsite = () => {
               </ul>
             </div>
           </div>
+          
           
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Brix Builds LLC. All rights reserved.</p>
