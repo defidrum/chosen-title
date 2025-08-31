@@ -240,18 +240,23 @@ const BrixBuildsWebsite = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Services', 'About', 'Leadership', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`font-medium transition-colors duration-200 hover:text-blue-600 relative group ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
-                  }`}
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
-                </button>
-              ))}
+              {['Services', 'About', 'Leadership', 'Contact'].map((item) => {
+                const sectionId = item === 'Contact' ? 'contact-form' : item.toLowerCase();
+
+                return (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(sectionId)}
+                    className={`font-medium transition-colors duration-200 hover:text-blue-600 relative group ${
+                      isScrolled ? 'text-gray-700' : 'text-white'
+                    }`}
+                  >
+                    {item}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                  </button>
+                );
+              })}
+
               <button
                 onClick={() => scrollToSection('contact-form')}
                 className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
@@ -259,6 +264,7 @@ const BrixBuildsWebsite = () => {
                 Schedule a Call
               </button>
             </div>
+
 
             {/* Mobile Menu Button */}
             <button
@@ -325,7 +331,7 @@ const BrixBuildsWebsite = () => {
               </span>
             </h1>
             <p className="text-xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Premier real estate development and construction solutions in Texas & 17 other states. 
+              Premier real estate development and construction solutions across Texas & 17 other states. 
               Creating exceptional communities and commercial spaces that define tomorrow's landscape.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -781,7 +787,7 @@ const BrixBuildsWebsite = () => {
               </div>
             </div>
 
-            <div id="contact-form" className="scroll-mt-32 bg-gray-50 rounded-3xl p-8">
+            <div id="contact-form" className="scroll-mt-20 bg-gray-50 rounded-3xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule a Call</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -924,22 +930,24 @@ const BrixBuildsWebsite = () => {
             </p>
           </div>
           <div className='ml-25'>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                {['Services', 'About', 'Contact'].map((item) => (
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              {['Services', 'About', 'Contact'].map((item) => {
+                const sectionId = item === 'Contact' ? 'contact-form' : item.toLowerCase();
+                return (
                   <li key={item}>
                     <button
-                      onClick={() => scrollToSection(item.toLowerCase())}
+                      onClick={() => scrollToSection(sectionId)}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
                       {item}
                     </button>
                   </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
+                );
+              })}
+            </ul>
+          </div>      
+          <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2">
                 <li className="text-gray-400">Residential Development</li>
