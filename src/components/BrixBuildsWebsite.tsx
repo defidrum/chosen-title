@@ -782,11 +782,7 @@ const BrixBuildsWebsite = () => {
               </div>
             </div>
 
-            <div
-  id="contact-form"
-  className="scroll-mt-32 bg-gray-50 rounded-3xl p-8"
->
-
+            <div id="contact-form" className="scroll-mt-32 bg-gray-50 rounded-3xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Schedule a Call</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
