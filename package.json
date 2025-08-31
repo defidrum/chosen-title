@@ -6,10 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "node server.js",
     "build": "vite build",
-    "test": "vitest",
-    "eject": "react-scripts eject"
+    "heroku-postbuild": "npm run build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
