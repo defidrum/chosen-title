@@ -237,12 +237,30 @@ const BrixBuildsWebsite = () => {
                 </div>
               </div>
             </div>
-
+  
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Services', 'About', 'Leadership', 'Contact'].map((item) => {
+              {['Services', 'About', 'Leadership', 'Academy', 'Contact'].map((item) => {
                 const sectionId = item === 'Contact' ? 'contact-form' : item.toLowerCase();
-
+                
+                // Handle Academy as external link
+                if (item === 'Academy') {
+                  return (
+                    <a
+                      key={item}
+                      href="https://www.brixbuildsacademy.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`font-medium transition-colors duration-200 hover:text-blue-600 relative group ${
+                        isScrolled ? 'text-gray-700' : 'text-white'
+                      }`}
+                    >
+                      {item}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                    </a>
+                  );
+                }
+  
                 return (
                   <button
                     key={item}
@@ -256,7 +274,7 @@ const BrixBuildsWebsite = () => {
                   </button>
                 );
               })}
-
+  
               <button
                 onClick={() => scrollToSection('contact-form')}
                 className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
@@ -264,8 +282,7 @@ const BrixBuildsWebsite = () => {
                 Schedule a Call
               </button>
             </div>
-
-
+  
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -275,20 +292,38 @@ const BrixBuildsWebsite = () => {
             </button>
           </div>
         </div>
-
+  
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-lg border-t">
             <div className="px-4 py-4 space-y-2">
-              {['Home', 'Services', 'About', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg font-medium"
-                >
-                  {item}
-                </button>
-              ))}
+              {['Home', 'Services', 'About', 'Academy', 'Contact'].map((item) => {
+                // Handle Academy as external link
+                if (item === 'Academy') {
+                  return (
+                    <a
+                      key={item}
+                      href="https://www.brixbuildsacademy.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </a>
+                  );
+                }
+                
+                return (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg font-medium"
+                  >
+                    {item}
+                  </button>
+                );
+              })}
               <button
                 onClick={() => scrollToSection('contact-form')}
                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-3 rounded-lg font-semibold mt-4"
