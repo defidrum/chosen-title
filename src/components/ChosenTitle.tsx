@@ -321,9 +321,9 @@ const ChosenTitleWebsite = () => {
             visibleSections.has('hero') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             {/* Logo Watermark */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+            {/* <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
               <img src={ChosenTitle} alt="" className="w-96 h-auto" />
-            </div>
+            </div> */}
             
             <div className="mb-6 flex justify-center gap-4">
               <span className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">Trusted by 500+ Real Estate Professionals</span>
