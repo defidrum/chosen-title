@@ -3,7 +3,7 @@ import { Menu, X, Home, Shield, ClipboardCheck, Phone, Mail, MapPin, Facebook, I
 import { SiTiktok, SiLinkedin } from 'react-icons/si';
 import ChosenTitle from "../img/chosenTitle.png"
 
-const FORM_ENDPOINT = "https://formspree.io/f/myzdwogo";
+const FORM_ENDPOINT = "https://formspree.io/f/mwpnyekj";
 
 const ChosenTitleWebsite = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -779,7 +779,7 @@ const ChosenTitleWebsite = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-1">Main Office</h4>
-                    <p className="text-gray-600">123 Main Street<br />Dallas, TX 75201</p>
+                    <p className="text-gray-600">8330 Lyndon B Johnson Fwy STE B360<br />Dallas, TX 75243</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -789,8 +789,7 @@ const ChosenTitleWebsite = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-1">Direct Lines</h4>
                     <p className="text-gray-600">
-                      Main: (214) 555-0123<br />
-                      Partner Support: (214) 555-0124
+                      Main: (469) 466-1002
                     </p>
                   </div>
                 </div>
@@ -801,8 +800,7 @@ const ChosenTitleWebsite = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
                     <p className="text-gray-600">
-                      General: info@chosentitle.com<br />
-                      Partners: partners@chosentitle.com
+                      General: terri@chosentitle.com<br />
                     </p>
                   </div>
                 </div>
@@ -985,10 +983,10 @@ const ChosenTitleWebsite = () => {
             <div className="flex flex-col space-y-4">
               <h4 className="text-lg font-semibold">Get in Touch</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>123 Main Street</li>
-                <li>Dallas, TX 75201</li>
-                <li className="text-yellow-400 font-semibold">(214) 555-0123</li>
-                <li>partners@chosentitle.com</li>
+                <li>8330 Lyndon B Johnson Fwy STE B360</li>
+                <li>Dallas, TX 75243</li>
+                <li className="text-yellow-400 font-semibold">(469) 466-1002</li>
+                <li>terri@chosentitle.com</li>
               </ul>
             </div>
           </div>
