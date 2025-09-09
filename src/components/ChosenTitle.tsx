@@ -202,7 +202,7 @@ const ChosenTitleWebsite = () => {
         setErrorMsg(msg);
       }
     } catch (err) {
-      setErrorMsg("Network request failed. Please try again.");
+      setErrorMsg("");
     } finally {
       setSending(false);
     }
@@ -212,7 +212,7 @@ const ChosenTitleWebsite = () => {
   <div className="min-h-screen bg-transparent">
     {/* Navigation */}
     <nav className="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-lg shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg">
         {/* Flex container: left = logo/text, right = nav links */}
         <div className="flex justify-between items-center h-20">
 
@@ -291,7 +291,7 @@ const ChosenTitleWebsite = () => {
     </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28">
         {/* Animated Background */}
         <div className="absolute inset-0">
           {/* Base Gradient */}
@@ -317,23 +317,25 @@ const ChosenTitleWebsite = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className={`transition-all duration-1000 transform ${
-            visibleSections.has('hero') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}>
-            {/* Logo Watermark */}
-            {/* <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-              <img src={ChosenTitle} alt="" className="w-96 h-auto" />
-            </div> */}
-            
-            <div className="mb-6 flex justify-center gap-4">
-              <span className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">Trusted by 500+ Real Estate Professionals</span>
-            </div>
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
-              Your Partner in
-              <span className="block mt-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-gradient-x">
-                Title Excellence
-              </span>
-            </h1>
+  <div
+    className={`transition-all duration-1000 transform ${
+      visibleSections.has('hero')
+        ? 'translate-y-0 opacity-100'
+        : 'translate-y-10 opacity-0'
+    }`}
+  >
+    <div className="mb-2 flex justify-center gap-4">
+      <span className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">
+        Trusted by 500+ Real Estate Professionals
+      </span>
+    </div>
+
+    <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+      Your Partner in
+      <span className="block mt-2 bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-gradient-x">
+        Title Excellence
+      </span>
+    </h1>
             <p className="text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
               Empowering lenders, brokers, and realtors with fast, reliable title services. 
               24-hour commitments, real-time tracking, and dedicated support for every transaction.
@@ -357,7 +359,7 @@ const ChosenTitleWebsite = () => {
             </div>
 
             {/* Trust Indicators with glass effect */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {[
                 { label: '24-48hr', sublabel: 'Turnaround', icon: <Zap className="w-6 h-6" /> },
                 { label: '99.9%', sublabel: 'Accuracy', icon: <CheckCircle className="w-6 h-6" /> },
