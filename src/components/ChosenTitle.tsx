@@ -429,15 +429,15 @@ const ChosenTitleWebsite = () => {
           </div>
 
           {/* Partner Portal Preview */}
-          <div id="partner-portal" className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-3xl p-12 text-white">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div id="partner-portal" className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-2xl md:rounded-3xl p-6 md:p-12 text-white">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div>
-                <h3 className="text-4xl font-bold mb-6">Partner Portal</h3>
-                <p className="text-xl mb-8 text-blue-100">
+                <h3 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Partner Portal</h3>
+                <p className="text-lg md:text-xl mb-6 md:mb-8 text-blue-100">
                   Access your dedicated dashboard with real-time transaction tracking, 
                   document management, and instant communication tools.
                 </p>
-                <div className="space-y-4 mb-8">
+                <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                   {[
                     'Track all transactions in one place',
                     'Upload and manage documents securely',
@@ -447,41 +447,41 @@ const ChosenTitleWebsite = () => {
                     'Generate reports and analytics'
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-yellow-400" />
-                      <span>{feature}</span>
+                      <Check className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 flex-shrink-0" />
+                      <span className="text-sm md:text-base">{feature}</span>
                     </div>
                   ))}
                 </div>
-                <button className="bg-yellow-400 text-gray-900 px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition-colors">
+                <button className="w-full md:w-auto bg-yellow-400 text-gray-900 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:bg-yellow-300 transition-colors text-sm md:text-base">
                   Request Portal Access
                 </button>
               </div>
-              <div className="relative">
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-full"></div>
-                    <div>
-                      <div className="text-lg font-semibold">Welcome Back</div>
-                      <div className="text-sm text-blue-200">sarah.martinez@firstnational.com</div>
+              <div className="relative mt-8 md:mt-0">
+                <div className="bg-white/10 backdrop-blur-lg rounded-xl md:rounded-2xl p-4 md:p-8 border border-white/20">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-400 rounded-full flex-shrink-0"></div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-base md:text-lg font-semibold truncate">Welcome Back</div>
+                      <div className="text-xs md:text-sm text-blue-200 truncate">sarah.martinez@firstnational.com</div>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="bg-white/10 rounded-lg p-4">
+                  <div className="space-y-3 md:space-y-4">
+                    <div className="bg-white/10 rounded-lg p-3 md:p-4">
                       <div className="flex justify-between items-center">
-                        <span>Active Transactions</span>
-                        <span className="text-2xl font-bold">12</span>
+                        <span className="text-sm md:text-base">Active Transactions</span>
+                        <span className="text-xl md:text-2xl font-bold">12</span>
                       </div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-4">
+                    <div className="bg-white/10 rounded-lg p-3 md:p-4">
                       <div className="flex justify-between items-center">
-                        <span>This Month's Closings</span>
-                        <span className="text-2xl font-bold">28</span>
+                        <span className="text-sm md:text-base">This Month's Closings</span>
+                        <span className="text-xl md:text-2xl font-bold">28</span>
                       </div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-4">
+                    <div className="bg-white/10 rounded-lg p-3 md:p-4">
                       <div className="flex justify-between items-center">
-                        <span>Documents Pending</span>
-                        <span className="text-2xl font-bold">3</span>
+                        <span className="text-sm md:text-base">Documents Pending</span>
+                        <span className="text-xl md:text-2xl font-bold">3</span>
                       </div>
                     </div>
                   </div>
