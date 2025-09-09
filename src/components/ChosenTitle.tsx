@@ -209,86 +209,86 @@ const ChosenTitleWebsite = () => {
   };
 
   return (
-<div className="min-h-screen bg-transparent">
-  {/* Navigation */}
-  <nav className="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-lg shadow-lg">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Flex container with space between left (logo/text) and right (links) */}
-      <div className="flex justify-between items-center h-20">
-        
-        {/* Logo + Text (Left side) */}
-        <div
-          className="flex items-center gap-3 cursor-pointer"
-          onClick={() => scrollToSection("hero")}
-        >
-          <img
-            src={ChosenTitle}
-            alt="Chosen Title Logo"
-            className="h-30 w-auto object-contain"
-          />
-          <span className="text-3xl font-serif text-black tracking-tight">
-            Chosen Title
-          </span>
-        </div>
+  <div className="min-h-screen bg-transparent">
+    {/* Navigation */}
+    <nav className="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-lg shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Flex container: left = logo/text, right = nav links */}
+        <div className="flex justify-between items-center h-20">
 
-        {/* Desktop Nav Links (Right side) */}
-        <div className="hidden md:flex items-center space-x-8">
-          {['Services', 'Partners', 'About', 'Process', 'Contact'].map((item) => {
-            const sectionId = item === 'Contact' ? 'contact-form' : item.toLowerCase();
-            return (
+          {/* Logo + Text (Left) */}
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => scrollToSection("hero")}
+          >
+            <img
+              src={ChosenTitle}
+              alt="Chosen Title Logo"
+              className="h-30 w-auto object-contain"
+            />
+            <span className="text-3xl font-serif text-black tracking-tight">
+              Chosen Title
+            </span>
+          </div>
+
+          {/* Desktop Nav Links (Right) */}
+          <div className="hidden md:flex items-center space-x-8">
+            {['Services', 'Partners', 'About', 'Process', 'Contact'].map((item) => {
+              const sectionId = item === 'Contact' ? 'contact-form' : item.toLowerCase();
+              return (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(sectionId)}
+                  className="font-medium transition-colors duration-200 hover:text-yellow-500 relative group text-gray-700"
+                >
+                  {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all group-hover:w-full"></span>
+                </button>
+              );
+            })}
+
+            {/* Partner Portal CTA */}
+            <button
+              onClick={() => scrollToSection('partner-portal')}
+              className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+            >
+              Partner Portal
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-gray-700"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t">
+          <div className="px-4 py-4 space-y-2">
+            {['Home', 'Services', 'Partners', 'About', 'Process', 'Contact'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(sectionId)}
-                className="font-medium transition-colors duration-200 hover:text-blue-600 relative group text-gray-700"
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg font-medium"
               >
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
               </button>
-            );
-          })}
-
-          {/* CTA Button */}
-          <button
-            onClick={() => scrollToSection('partner-portal')}
-            className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-          >
-            Partner Portal
-          </button>
-        </div>
-
-        {/* Mobile Menu Button (Right side on mobile) */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-gray-700"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-    </div>
-
-    {/* Mobile Menu */}
-    {mobileMenuOpen && (
-      <div className="md:hidden bg-white/95 backdrop-blur-lg border-t">
-        <div className="px-4 py-4 space-y-2">
-          {['Home', 'Services', 'Partners', 'About', 'Process', 'Contact'].map((item) => (
+            ))}
             <button
-              key={item}
-              onClick={() => scrollToSection(item.toLowerCase())}
-              className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg font-medium"
+              onClick={() => scrollToSection('partner-portal')}
+              className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-3 rounded-lg font-semibold mt-4"
             >
-              {item}
+              Partner Portal
             </button>
-          ))}
-          <button
-            onClick={() => scrollToSection('partner-portal')}
-            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 px-6 py-3 rounded-lg font-semibold mt-4"
-          >
-            Partner Portal
-          </button>
+          </div>
         </div>
-      </div>
-    )}
-  </nav>
+      )}
+    </nav>
 
       {/* Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
