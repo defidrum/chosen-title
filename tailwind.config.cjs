@@ -22,7 +22,44 @@ module.exports = {
       },
       ringColor: {
         brix: "#4B9CD3"
-      }
+      },
+      keyframes: {
+        blob: {
+          '0%': {
+            transform: 'translate(0px, 0px) scale(1)',
+          },
+          '33%': {
+            transform: 'translate(30px, -50px) scale(1.1)',
+          },
+          '66%': {
+            transform: 'translate(-20px, 20px) scale(0.9)',
+          },
+          '100%': {
+            transform: 'translate(0px, 0px) scale(1)',
+          },
+        },
+        'gradient-x': {
+          '0%, 100%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+        },
+        scroll: {
+          '0%': {
+            transform: 'translateY(0)',
+          },
+          '100%': {
+            transform: 'translateY(10px)',
+          },
+        },
+      },
+      animation: {
+        blob: 'blob 7s infinite',
+        'gradient-x': 'gradient-x 3s ease infinite',
+        scroll: 'scroll 1.5s ease-in-out infinite',
+      },
     }
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")]
